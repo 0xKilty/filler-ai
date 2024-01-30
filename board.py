@@ -12,9 +12,6 @@ class Board():
             self.board_ownership.append([0] * 8)
         self.board_ownership[6][0] = 1
         self.board_ownership[0][7] = 2
-    
-        self.player_1_touching = [(5, 0), (6, 1)]
-        self.player_2_touching = [(1, 7), (0, 6)]
 
     def __str__(self):
         res = ""
@@ -41,7 +38,8 @@ class Board():
     def set_board(self):
         for i in range(7):
             for j in range(8):
-                self.board_data[i][j] = random.randint(0, 6)
+                self.board_data[i][j] = random.randint(0, 5)
                 while self.board_data[i][j] in self.get_neighboring_colors(i, j):
-                    self.board_data[i][j] = random.randint(0, 6)    
+                    self.board_data[i][j] = random.randint(0, 5)
+
         return self.board_data
